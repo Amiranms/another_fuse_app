@@ -239,8 +239,10 @@ struct file* getFile(const char* path)//tested
     for (int i = 0; i <= curFold->currFileIndex; i++)
     {
         if (!strcmp(curFold->files[i].fileName, filename))
+	{
+	    free(filename);
             return &curFold->files[i];
-    }
+	}
     free(filename);
     return NULL;
 }
